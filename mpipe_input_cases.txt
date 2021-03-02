@@ -1,0 +1,34 @@
+The following test cases will be used to grade PA1
+We won't have other hidden test cases, but we will check your codes to make sure the correctness
+
+Case1: 
+
+exit
+
+Case2: 
+
+ls
+
+Case3: 
+
+ls	-l  -h
+
+Case4: 
+
+ls -lh
+
+Case5: 
+
+ls | sort
+
+Case6: 
+
+ls | sort | sort | sort | sort | sort | sort | sort | sort | sort | sort | sort | sort | sort | sort | sort
+
+Case7: 
+
+ls -l | sort | wc -l
+
+Case8: 
+
+du -ah | sort -rh | head -1
