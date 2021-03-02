@@ -115,7 +115,7 @@ void process_cmd(char *cmdline)
             execvp(cmd[0], args);
 
             // terminate child precess
-            exit();
+            exit(0);
         } else {
             wait(0);
         }
