@@ -95,17 +95,23 @@ void process_cmd(char *cmdline)
             close(1);
             dup2(pfds[(current_segment+1)%2], 1);
             close(0);
-            dup2(pfds[(current_segment%2], 0);
+            dup2(pfds[current_segment%2], 0);
 
             // execute the command in current segment
             char *cmd[MAX_CMDLINE_LEN];
             int num_cmd;
-            tokenize(cmd, pipe_segments[current_segment], num_cmd, "\t\r\n\v\f ");
+            tokenize(cmd, pipe_segments[current_segment], &num_cmd, "\t\r\n\v\f ");
             char *args[num_cmd];
             for (int i = 1; i < num_cmd; ++i) {
                 args[i-1] = cmd[i];
             }
             args[num_cmd-1] = NULL;
+
+            printf("Executing: ");
+            for (int i = 0; i < num_cmd; ++i) {
+                printf("%s ", cmd[0]);
+            }
+            printf("\n");
             execvp(cmd[0], args);
 
             // terminate child precess
